@@ -12,6 +12,7 @@ import 'package:my_odc_tasks/view/layout.dart';
 import 'package:my_odc_tasks/view/screens/attendance_history/attendance_history_screen.dart';
 import 'package:my_odc_tasks/view/screens/attendance_screen/attendance_screen.dart';
 import 'package:my_odc_tasks/view/screens/forget_password/by_email/forget_password_email_screen.dart';
+import 'package:my_odc_tasks/view/screens/forget_password/by_email/verify_otp_email_screen.dart';
 import 'package:my_odc_tasks/view/screens/forget_password/by_phone/forget_password_phone_screen.dart';
 import 'package:my_odc_tasks/view/screens/forget_password/new_password/new_password_screen.dart';
 import 'package:my_odc_tasks/view/screens/quests/quests_screen.dart';
@@ -24,6 +25,8 @@ import 'package:my_odc_tasks/view_model/database/local/cache_helper.dart';
 import 'package:my_odc_tasks/view_model/database/network/dio_helper.dart';
 
 import 'package:timezone/data/latest.dart' as time_zone;
+
+import 'view/screens/forget_password/by_phone/verify_otp_phone_screen.dart';
 
 
 Future<void> main() async {
@@ -97,7 +100,7 @@ class MyApp extends StatelessWidget {
           darkTheme: buildDarkMode(context),
           themeMode:
           ThemeCubit.get(context).isDark ? ThemeMode.dark : ThemeMode.light,
-           home: NewPasswordScreen(),
+           home: VerifyPhoneScreen(),
         );
       },
     );
