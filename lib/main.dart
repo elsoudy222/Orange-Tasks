@@ -11,6 +11,7 @@ import 'package:my_odc_tasks/view/constant/theme.dart';
 import 'package:my_odc_tasks/view/layout.dart';
 import 'package:my_odc_tasks/view/screens/attendance_history/attendance_history_screen.dart';
 import 'package:my_odc_tasks/view/screens/attendance_screen/attendance_screen.dart';
+import 'package:my_odc_tasks/view/screens/forget_password/forget_password_email_screen.dart';
 import 'package:my_odc_tasks/view/screens/quests/quests_screen.dart';
 import 'package:my_odc_tasks/view/screens/splash/splash_screen.dart';
 import 'package:my_odc_tasks/view_model/cubits/attendance/attendance_cubit.dart';
@@ -89,16 +90,16 @@ class MyApp extends StatelessWidget {
 // supportedLocales: context.supportedLocales,
 // locale: context.locale,
           navigatorKey: NavigationService.instance.navigationKey,
-          initialRoute: '/',
-          routes: {
-            '/': (context) => SplashScreen()
-          },
+          // initialRoute: '/',
+          // routes: {
+          //   '/': (context) => SplashScreen()
+          // },
           debugShowCheckedModeBanner: false,
           theme: buildLightMode(context),
           darkTheme: buildDarkMode(context),
           themeMode:
           ThemeCubit.get(context).isDark ? ThemeMode.dark : ThemeMode.light,
-          // home: OnboardScreen(),
+           home: ForgetPasswordScreen(),
         );
       },
     );

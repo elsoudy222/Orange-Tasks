@@ -127,7 +127,9 @@
 //   }
 // }
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../constant/color_manager.dart';
 import '../../../constant/color_manager.dart';
 
 // ignore: must_be_immutable
@@ -175,7 +177,7 @@ class TextFormFieldsCustom extends StatefulWidget {
     this.suffixOnPressed,
     this.focus,
     this.onChanged,
-    required bool enableInteractive,
+    required bool enableInteractive, required double borderRadius,
   }) : super(key: key);
 
   @override
@@ -186,67 +188,76 @@ class _TextFormFieldsCustomState extends State<TextFormFieldsCustom> {
   //const TextFormFieldsCustom({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      controller: widget.controller,
-      focusNode: widget.focus,
-      textInputAction: widget.textInputAction ?? TextInputAction.done,
-      onEditingComplete: widget.onEditingComplete,
-      onChanged: (value) {
-        //onChanged!(value);
-        widget.onChanged != null ? widget.onChanged!(value) : null;
-      },
-      style: const TextStyle(
-          color: whiteColor
-      ),
-      cursorColor: mainColor,
-      decoration: InputDecoration(
-        fillColor: toastColor,
-        filled: true,
-        isDense: true,
-        hintText: widget.hintText,
-        helperText: widget.helperText,
-        prefixIcon: widget.prefixIcon,
-        suffixIcon:widget.suffixIcon,
-        floatingLabelBehavior: FloatingLabelBehavior.auto,
-        hintStyle: const TextStyle(
-          fontSize: 16,
-          color: textColorFormField,
+    return SizedBox(
+      width: double.infinity,
+      child: TextFormField(
+        controller: widget.controller,
+        focusNode: widget.focus,
+        textInputAction: widget.textInputAction ?? TextInputAction.done,
+        onEditingComplete: widget.onEditingComplete,
+        onChanged: (value) {
+          //onChanged!(value);
+          widget.onChanged != null ? widget.onChanged!(value) : null;
+        },
+        style: const TextStyle(
+            color: Colors.black
         ),
-        border: OutlineInputBorder(
+        cursorColor: mainColor,
+        cursorHeight: 18.h,
+        decoration: InputDecoration(
+          fillColor: whiteColor,
+          filled: true,
+          isDense: true,
+          hintText: widget.hintText,
+          helperText: widget.helperText,
+          prefixIcon: widget.prefixIcon,
+          suffixIcon:widget.suffixIcon,
+          floatingLabelBehavior: FloatingLabelBehavior.auto,
+          hintStyle: const TextStyle(
+            fontSize: 16,
+            color: textColorFormField,
+          ),
+          border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(20),
+          ),
+          enabledBorder:   OutlineInputBorder(
             borderRadius: BorderRadius.circular(20),
-        ),
-        enabledBorder: const OutlineInputBorder(
-          borderSide: BorderSide(
-            color: toastColor,
+            borderSide: const BorderSide(
+              color: grey600,
+            ),
+          ),
+
+          contentPadding:  EdgeInsets.symmetric(
+            vertical: 10.h,
+            horizontal: 14.w,
+          ),
+          focusedBorder:  OutlineInputBorder(
+            borderRadius: BorderRadius.circular(20),
+            borderSide: BorderSide(
+              color: grey600,
+            ),
+          ),
+          errorBorder:  OutlineInputBorder(
+            borderRadius: BorderRadius.circular(20),
+            borderSide: BorderSide(
+              color: Colors.red,
+            ),
+          ),
+          focusedErrorBorder:  OutlineInputBorder(
+            borderRadius: BorderRadius.circular(20),
+            borderSide: BorderSide(
+              color: Colors.red,
+            ),
           ),
         ),
-        contentPadding: const EdgeInsets.symmetric(
-          vertical: 20,
-          horizontal: 16,
-        ),
-        focusedBorder: const OutlineInputBorder(
-          borderSide: BorderSide(
-            color: toastColor,
-          ),
-        ),
-        errorBorder: const OutlineInputBorder(
-          borderSide: BorderSide(
-            color: Colors.red,
-          ),
-        ),
-        focusedErrorBorder: const OutlineInputBorder(
-          borderSide: BorderSide(
-            color: Colors.red,
-          ),
-        ),
+        obscureText: widget.isPassword!,
+        obscuringCharacter: '*',
+        validator: widget.validator,
+        onSaved: (value) {
+          // widget.onSaved != null ? widget.onSaved!(value) : null;
+        },
+        keyboardType: widget.keyboardType,
       ),
-      obscureText: widget.isPassword!,
-      obscuringCharacter: '*',
-      validator: widget.validator,
-      onSaved: (value) {
-        // widget.onSaved != null ? widget.onSaved!(value) : null;
-      },
-      keyboardType: widget.keyboardType,
     );
   }
 }

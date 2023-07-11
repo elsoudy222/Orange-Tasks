@@ -9,7 +9,7 @@ class MainTextFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormFieldsCustom(
-      hintText: 'email', enableInteractive: false,
+      hintText: 'email', enableInteractive: false, borderRadius: 10,
     );
   }
 }
