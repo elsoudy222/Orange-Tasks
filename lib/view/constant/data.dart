@@ -22,8 +22,14 @@ String validationPhone = r'(^(?:[+0]9)?[0-9]{10,12}$)';
 
 // Routers
 // todo: add new screens
+
+
 const String verifyEmailScreen = 'VerifyEmailScreen';
-const String forgetPasswordScreen = 'ForgetPasswordScreen';
+const String verifyPhoneScreen = 'verifyPhoneScreen';
+const String forgetPasswordEmailScreen = 'forgetPasswordEmailScreen';
+const String forgetPasswordPhoneScreen = 'forgetPasswordPhoneScreen';
+
+
 const String createNewPasswordScreen = 'CreateNewPasswordScreen';
 const String loginScreen = 'LoginScreen';
 const String createPasswordScreen = 'CreatePasswordScreen';

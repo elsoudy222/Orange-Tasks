@@ -11,7 +11,9 @@ import 'package:my_odc_tasks/view/constant/theme.dart';
 import 'package:my_odc_tasks/view/layout.dart';
 import 'package:my_odc_tasks/view/screens/attendance_history/attendance_history_screen.dart';
 import 'package:my_odc_tasks/view/screens/attendance_screen/attendance_screen.dart';
-import 'package:my_odc_tasks/view/screens/forget_password/forget_password_email_screen.dart';
+import 'package:my_odc_tasks/view/screens/forget_password/by_email/forget_password_email_screen.dart';
+import 'package:my_odc_tasks/view/screens/forget_password/by_phone/forget_password_phone_screen.dart';
+import 'package:my_odc_tasks/view/screens/forget_password/new_password/new_password_screen.dart';
 import 'package:my_odc_tasks/view/screens/quests/quests_screen.dart';
 import 'package:my_odc_tasks/view/screens/splash/splash_screen.dart';
 import 'package:my_odc_tasks/view_model/cubits/attendance/attendance_cubit.dart';
@@ -40,9 +42,8 @@ Future<void> main() async {
         BlocProvider(create: (context) => LayoutCubit(),),
         BlocProvider(create: (context) => AttendanceCubit(),),
         BlocProvider(create: (context) => AttendanceHistoryCubit(),),
-        BlocProvider(
-          create: (context) => ThemeCubit(),
-        ),
+        BlocProvider(create: (context) => ThemeCubit(),),
+
         // BlocProvider(create: (context) => UsersCubit()..getPost()),
         // BlocProvider(create: (context) => ScreenShootCubit()..disableCapture()),
         // BlocProvider(create: (context) => ForgetPasswordCubit()),
@@ -86,9 +87,6 @@ class MyApp extends StatelessWidget {
       splitScreenMode: true,
       builder: (BuildContext context, Widget? child) {
         return MaterialApp(
-// localizationsDelegates: context.localizationDelegates,
-// supportedLocales: context.supportedLocales,
-// locale: context.locale,
           navigatorKey: NavigationService.instance.navigationKey,
           // initialRoute: '/',
           // routes: {
@@ -99,7 +97,7 @@ class MyApp extends StatelessWidget {
           darkTheme: buildDarkMode(context),
           themeMode:
           ThemeCubit.get(context).isDark ? ThemeMode.dark : ThemeMode.light,
-           home: ForgetPasswordScreen(),
+           home: NewPasswordScreen(),
         );
       },
     );

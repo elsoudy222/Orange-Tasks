@@ -2,17 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../../components/core/buttons/custom_button.dart';
-import '../../components/core/custom_appbar.dart';
-import '../../components/core/custom_text.dart';
-import '../../components/core/textfields/custom_text_form_filed.dart';
-import '../../constant/color_manager.dart';
-import '../../constant/data.dart';
-import '../../constant/fonts.dart';
+import '../../../components/core/buttons/custom_button.dart';
+import '../../../components/core/custom_appbar.dart';
+import '../../../components/core/custom_text.dart';
+import '../../../components/core/textfields/custom_text_form_filed.dart';
+import '../../../constant/color_manager.dart';
+import '../../../constant/data.dart';
+import '../../../constant/fonts.dart';
 
-
-class ForgetPasswordScreen extends StatelessWidget {
-  ForgetPasswordScreen({Key? key}) : super(key: key);
+class ForgetPasswordPhoneScreen extends StatelessWidget {
+  ForgetPasswordPhoneScreen({Key? key}) : super(key: key);
   static final formKey = GlobalKey<FormState>();
   TextEditingController emailController = TextEditingController();
 
@@ -23,7 +22,6 @@ class ForgetPasswordScreen extends StatelessWidget {
       appBar: CustomAppBar(
         colorAppBar: white,
         onPressed: () {},
-
         colorTxtAppBar: black,
       ),
       body: SingleChildScrollView(
@@ -57,20 +55,18 @@ class ForgetPasswordScreen extends StatelessWidget {
                   color: grey900,
                 ),
                 SizedBox(
-                  height: 42.h,
+                  height: 32.h,
                 ),
                 Container(
-                  padding: EdgeInsets.symmetric(horizontal: 10.w),
+                  padding:
+                  EdgeInsets.symmetric(horizontal: 10.w, vertical: 5.h),
                   width: double.infinity,
-
                   child: CustomText(
-
                     textAlign: TextAlign.start,
-                    text: "Email",
+                    text: "Phone Number",
                     color: Color(0xFF1A1A1A),
-                    fontSize: 15.sp,
+                    fontSize: 14.sp,
                     fontWeight: FontWeight.w400,
-
                   ),
                 ),
                 // e-mail text form field
@@ -78,45 +74,44 @@ class ForgetPasswordScreen extends StatelessWidget {
                   enableInteractive: true,
                   keyboardType: TextInputType.emailAddress,
                   textInputAction: TextInputAction.done,
-                  hintText: 'Email',
+                  hintText: 'Phone Number',
                   borderRadius: 15.0.h,
                   controller: emailController,
                   // validate
                   validator: (value) {
                     if (value!.trim().isEmpty) {
-                      return "email must be not Empty";
-                    } else if (!RegExp(validationEmail)
+                      return "Phone Number must be not Empty";
+                    } else if (!RegExp(validationPhone)
                         .hasMatch(value.trim())) {
-                      return "email is not Valid";
+                      return "Phone Number is not Valid";
                     }
                     return null;
-                  },),
-                SizedBox(
-                  height: 25.h,
+                  },
                 ),
-                CustomText(
-                  text:
-                  'or Phone Number',
-                  textAlign: TextAlign.center,
-                  fontWeight: FontWeight.normal,
-                  fontSize: textFont13.sp,
-                  color: Colors.black,
+                SizedBox(
+                  height: 20.h,
+                ),
+                GestureDetector(
+                  onTap: () {},
+                  child: CustomText(
+                    text: 'or Email',
+                    textAlign: TextAlign.center,
+                    fontWeight: FontWeight.normal,
+                    fontSize: textFont13.sp,
+                    color: Colors.black,
+                  ),
                 ),
                 SizedBox(
                   height: 42.h,
                 ),
-
 
                 CustomButton(
                   color: mainColor,
                   borderRadius: 15.0,
                   onClick: () {
                     if (formKey.currentState!.validate()) {
-
-                      Navigator.pushNamed(
-                          context, 'VerifyScreen',
+                      Navigator.pushNamed(context, 'VerifyScreen',
                           arguments: emailController.text);
-
                     }
                   },
                   //
@@ -126,7 +121,9 @@ class ForgetPasswordScreen extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                SizedBox(height: 8.h,)
+                SizedBox(
+                  height: 8.h,
+                )
               ],
             ),
           ),
