@@ -43,8 +43,8 @@ class HomeScreen extends StatelessWidget {
           padding: EdgeInsets.all(15.0.h),
           child: Column(
             children: [
-              const PostWidget(
-                image: "",
+               PostWidget(
+                image: null,
                 companyLogo: softwareLogo,
                 companyName: 'Software House',
                 postBody:
@@ -60,11 +60,12 @@ class HomeScreen extends StatelessWidget {
               SizedBox(
                 height: 20.h,
               ),
-              const PostWidget(
+               PostWidget(
+                 isImage: true,
                 companyLogo: softwareLogo,
                 companyName: "Software House",
                 postBody: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
-                image: "assets/icons/VideoActive.svg",
+                image: "assets/images/appicon.png",
               )
             ],
           ),
@@ -75,17 +76,19 @@ class HomeScreen extends StatelessWidget {
 }
 
 class PostWidget extends StatelessWidget {
+  bool isImage;
   final String companyLogo;
   final String companyName;
   final String postBody;
-  final String? image;
+   String? image;
 
-  const PostWidget({
+   PostWidget({
     super.key,
     required this.companyLogo,
     required this.companyName,
     required this.postBody,
     this.image,
+     this.isImage = false,
   });
 
   @override
@@ -137,11 +140,7 @@ class PostWidget extends StatelessWidget {
                 textAlign: TextAlign.left,
                 style: TextStyle(fontSize: 15.sp),
               ),
-              SvgPicture.asset(
-                image!,
-                width: double.infinity,
-
-              ),
+              isImage? Image(image: AssetImage(image!)) : Container()
             ],
           ),
         ),

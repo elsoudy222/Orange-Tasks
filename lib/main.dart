@@ -16,6 +16,8 @@ import 'package:my_odc_tasks/view/screens/forget_password/by_email/verify_otp_em
 import 'package:my_odc_tasks/view/screens/forget_password/by_phone/forget_password_phone_screen.dart';
 import 'package:my_odc_tasks/view/screens/forget_password/new_password/new_password_screen.dart';
 import 'package:my_odc_tasks/view/screens/home/layout/home_layout.dart';
+import 'package:my_odc_tasks/view/screens/profile/edit_profile_screen.dart';
+import 'package:my_odc_tasks/view/screens/profile/startup_profile_screen.dart';
 import 'package:my_odc_tasks/view/screens/quests/quests_screen.dart';
 import 'package:my_odc_tasks/view/screens/splash/splash_screen.dart';
 import 'package:my_odc_tasks/view_model/cubits/attendance/attendance_cubit.dart';

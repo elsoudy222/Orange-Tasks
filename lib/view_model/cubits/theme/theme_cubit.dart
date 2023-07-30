@@ -1,6 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
 import '../../../view/constant/color_manager.dart';
+import '../../database/local/cache_helper.dart';
 
 part 'theme_state.dart';
 
@@ -21,4 +22,12 @@ class ThemeCubit extends Cubit<ThemeState> {
     // }
     emit(ChangeThemeState());
   }
+
+
+  void cashAppTheme(bool value) async {
+    await CacheHelper.put(key: 'theme', value: value);
+    emit(CacheThemeDataState(value: value));
+  }
+
 }
+

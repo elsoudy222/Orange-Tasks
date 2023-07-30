@@ -5,10 +5,13 @@ import 'package:flutter_svg/svg.dart';
 import 'package:meta/meta.dart';
 import 'package:my_odc_tasks/view/screens/home/home/home_screen.dart';
 import 'package:my_odc_tasks/view/screens/home/search/search_screen.dart';
+import 'package:my_odc_tasks/view/screens/profile/edit_profile_screen.dart';
 
 import '../../../view/constant/assets.dart';
 import '../../../view/constant/color_manager.dart';
+import '../../../view/profile_screen.dart';
 import '../../../view/screens/attendance_screen/attendance_screen.dart';
+import '../../../view/screens/profile/startup_profile_screen.dart';
 
 part 'home_layout_state.dart';
 
@@ -25,7 +28,7 @@ class HomeLayoutCubit extends Cubit<HomeLayoutState> {
   List<Widget> screens =  [
     HomeScreen(),
     SearchScreen(),
-    HomeScreen()
+    EditProfileScreen()
 
   ];
 
