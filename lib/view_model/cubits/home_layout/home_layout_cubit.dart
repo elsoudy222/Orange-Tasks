@@ -1,30 +1,32 @@
-import 'package:flutter/cupertino.dart';
+import 'package:bloc/bloc.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:meta/meta.dart';
+import 'package:my_odc_tasks/view/screens/home/home/home_screen.dart';
+import 'package:my_odc_tasks/view/screens/home/search/search_screen.dart';
 
 import '../../../view/constant/assets.dart';
 import '../../../view/constant/color_manager.dart';
 import '../../../view/screens/attendance_screen/attendance_screen.dart';
-import 'layout_states.dart';
 
-class LayoutCubit extends Cubit<LayoutStates> {
-  LayoutCubit() : super(LayoutInitialState());
+part 'home_layout_state.dart';
 
-  static LayoutCubit get(context) => BlocProvider.of(context);
+class HomeLayoutCubit extends Cubit<HomeLayoutState> {
+  HomeLayoutCubit() : super(HomeLayoutInitial());
+
+  static HomeLayoutCubit get(context) => BlocProvider.of(context);
 
   var currentIndex = 0;
 
-  // List<String> titles = [
-  //   '',
-  //   'الأذكار',
-  //   'السبحة الإلكترونية',
-  // ];
+
 
   // todo: call right screens.
   List<Widget> screens = const [
-    AttendanceScreen(),
-    AttendanceScreen(),
-    AttendanceScreen(),
+    HomeScreen(),
+    SearchScreen(),
+    HomeScreen()
+
   ];
 
   List<BottomNavigationBarItem> bottomNavBarItems = [
@@ -33,7 +35,7 @@ class LayoutCubit extends Cubit<LayoutStates> {
         screen,
       ),
       activeIcon: Container(
-          decoration:  const BoxDecoration(
+          decoration:   const BoxDecoration(
             boxShadow: [
               BoxShadow(
                 color: shadowColor,
@@ -44,7 +46,7 @@ class LayoutCubit extends Cubit<LayoutStates> {
             ],
           ),
           child: SvgPicture.asset(
-            screenActive,
+            softwareLogo,
           )),
       label: '',
     ),
@@ -86,6 +88,4 @@ class LayoutCubit extends Cubit<LayoutStates> {
     currentIndex = index;
     emit(ChangeBottomNavBarState());
   }
-
-
 }

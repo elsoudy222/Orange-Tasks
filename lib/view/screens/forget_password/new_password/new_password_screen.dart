@@ -52,7 +52,7 @@ class NewPasswordScreen extends StatelessWidget {
 
                 // icon
                 SvgPicture.asset(
-                  'assets/svg/attendance_check.svg',
+                  'assets/svg/new_pass.svg',
                   fit: BoxFit.contain,
                   height: MediaQuery.of(context).size.height / 4.2,
                 ),

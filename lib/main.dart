@@ -15,10 +15,12 @@ import 'package:my_odc_tasks/view/screens/forget_password/by_email/forget_passwo
 import 'package:my_odc_tasks/view/screens/forget_password/by_email/verify_otp_email_screen.dart';
 import 'package:my_odc_tasks/view/screens/forget_password/by_phone/forget_password_phone_screen.dart';
 import 'package:my_odc_tasks/view/screens/forget_password/new_password/new_password_screen.dart';
+import 'package:my_odc_tasks/view/screens/home/layout/home_layout.dart';
 import 'package:my_odc_tasks/view/screens/quests/quests_screen.dart';
 import 'package:my_odc_tasks/view/screens/splash/splash_screen.dart';
 import 'package:my_odc_tasks/view_model/cubits/attendance/attendance_cubit.dart';
 import 'package:my_odc_tasks/view_model/cubits/attendance_history/attendance_history_cubit.dart';
+import 'package:my_odc_tasks/view_model/cubits/home_layout/home_layout_cubit.dart';
 import 'package:my_odc_tasks/view_model/cubits/layout/layout_cubit.dart';
 import 'package:my_odc_tasks/view_model/cubits/theme/theme_cubit.dart';
 import 'package:my_odc_tasks/view_model/database/local/cache_helper.dart';
@@ -43,21 +45,12 @@ Future<void> main() async {
       providers: [
 
         BlocProvider(create: (context) => LayoutCubit(),),
+        BlocProvider(create: (context) => HomeLayoutCubit(),),
         BlocProvider(create: (context) => AttendanceCubit(),),
         BlocProvider(create: (context) => AttendanceHistoryCubit(),),
         BlocProvider(create: (context) => ThemeCubit(),),
 
-        // BlocProvider(create: (context) => UsersCubit()..getPost()),
-        // BlocProvider(create: (context) => ScreenShootCubit()..disableCapture()),
-        // BlocProvider(create: (context) => ForgetPasswordCubit()),
-        // BlocProvider(create: (context) => SocketCubit()..socketListener()),
-        // BlocProvider(create: (context) => UpdateDetailsCubit()),
-        // BlocProvider(create: (context) => PartnerAccountCubit()),
-        // BlocProvider(create: (context) => OrderCubit()),
-        // BlocProvider(create: (context) => NotificationsCubit()),
-        // BlocProvider(create: (context) => ProfileCubit()),
-        // BlocProvider(create: (context) => CompanyDetailsSupportCubit()..getCompanyDetails()),
-        //BlocProvider(create: (context) => NeedHelpSupportCubit()..getCompaniesSupport())
+
       ],
       child: EasyLocalization(
         path: "resources/langs",
@@ -98,9 +91,9 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           theme: buildLightMode(context),
           darkTheme: buildDarkMode(context),
-          themeMode:
-          ThemeCubit.get(context).isDark ? ThemeMode.dark : ThemeMode.light,
-           home: VerifyPhoneScreen(),
+
+
+           home: HomeLayout(),
         );
       },
     );

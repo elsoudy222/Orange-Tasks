@@ -56,7 +56,7 @@ class _VerifyPhoneScreenState extends State<VerifyPhoneScreen> {
             children: [
               // image
               SvgPicture.asset(
-                'assets/svg/attendance_check.svg',
+                'assets/svg/otp.svg',
                 fit: BoxFit.contain,
                 height: MediaQuery.of(context).size.height / 4.0,
               ),

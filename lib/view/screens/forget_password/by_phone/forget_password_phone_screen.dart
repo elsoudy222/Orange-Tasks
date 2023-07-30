@@ -41,7 +41,7 @@ class ForgetPasswordPhoneScreen extends StatelessWidget {
                     width: 198.w,
                     child: SvgPicture.asset(
                       // TODO : { Need to change icon: }
-                      'assets/svg/attendance_check.svg',
+                      'assets/svg/to sent illustration.svg',
                       fit: BoxFit.contain,
                     )),
 

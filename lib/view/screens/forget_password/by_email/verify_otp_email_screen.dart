@@ -56,7 +56,7 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
             children: [
               // image
               SvgPicture.asset(
-                'assets/svg/attendance_check.svg',
+                'assets/svg/otp.svg',
                 fit: BoxFit.contain,
                 height: MediaQuery.of(context).size.height / 4.0,
               ),
@@ -93,6 +93,7 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
                   children: [
                     buildOtpTextField(
                       context: context,
+
                       focusNode: _firstFocusNode,
                       controller: _firstController,
                       nextFocusNode: _secondFocusNode,

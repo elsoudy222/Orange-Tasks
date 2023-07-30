@@ -47,7 +47,7 @@ Widget buildOtpTextField({
           maxLength: 1,
           keyboardType: TextInputType.number,
           textAlign: TextAlign.center,
-          style: TextStyle(fontSize: 20.0.sp, color: Colors.black),
+          style: TextStyle(fontSize: 20.0.sp, color: Colors.deepOrange),
           decoration: const InputDecoration(
             counterText: '',
             border: InputBorder.none,

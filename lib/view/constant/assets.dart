@@ -31,6 +31,12 @@ const String video = 'assets/icons/VideoNotActive.svg';
 const String videoActive = 'assets/icons/VideoActive.svg';
 const String screen = 'assets/icons/ScreenNotActive.svg';
 const String screenActive = 'assets/icons/ScreenActive.svg';
+const String softwareLogo = 'assets/svg/software_logo.svg';
+const String heart = 'assets/svg/heart.svg';
+const String arrowRepeat = 'assets/svg/arrow-path-rounded-square.svg';
+const String chat = 'assets/svg/chat-bubble-oval-left-ellipsis.svg';
+const String more = 'assets/svg/more.svg';
+
 
 // liquid Items
 const String reflection = 'assets/icons/Reflection.svg';
