@@ -149,6 +149,7 @@ class TextFormFieldsCustom extends StatefulWidget {
   final Widget? suffixIcon;
   final Widget? prefixIcon;
   final Color? suffixIconColor;
+  final Color borderColor;
   final IconData? suffixIconToggle;
   final Color? suffixIconColorToggle;
   final Function()? suffixOnPressed;
@@ -177,7 +178,9 @@ class TextFormFieldsCustom extends StatefulWidget {
     this.suffixOnPressed,
     this.focus,
     this.onChanged,
-    required bool enableInteractive, required double borderRadius,
+    required bool enableInteractive,
+    required double borderRadius,
+    this.borderColor = grey600,
   }) : super(key: key);
 
   @override
@@ -188,76 +191,75 @@ class _TextFormFieldsCustomState extends State<TextFormFieldsCustom> {
   //const TextFormFieldsCustom({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: double.infinity,
-      child: TextFormField(
-        controller: widget.controller,
-        focusNode: widget.focus,
-        textInputAction: widget.textInputAction ?? TextInputAction.done,
-        onEditingComplete: widget.onEditingComplete,
-        onChanged: (value) {
-          //onChanged!(value);
-          widget.onChanged != null ? widget.onChanged!(value) : null;
-        },
-        style: const TextStyle(
-            color: Colors.black
-        ),
-        cursorColor: mainColor,
-        cursorHeight: 18.h,
-        decoration: InputDecoration(
-          fillColor: whiteColor,
-          filled: true,
-          isDense: true,
-          hintText: widget.hintText,
-          helperText: widget.helperText,
-          prefixIcon: widget.prefixIcon,
-          suffixIcon:widget.suffixIcon,
-          floatingLabelBehavior: FloatingLabelBehavior.auto,
-          hintStyle: const TextStyle(
-            fontSize: 16,
-            color: textColorFormField,
-          ),
-          border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(20),
-          ),
-          enabledBorder:   OutlineInputBorder(
-            borderRadius: BorderRadius.circular(20),
-            borderSide: const BorderSide(
-              color: grey600,
-            ),
-          ),
+    return TextFormField(
 
-          contentPadding:  EdgeInsets.symmetric(
-            vertical: 10.h,
-            horizontal: 14.w,
-          ),
-          focusedBorder:  OutlineInputBorder(
+      controller: widget.controller,
+      focusNode: widget.focus,
+      textInputAction: widget.textInputAction ?? TextInputAction.done,
+      onEditingComplete: widget.onEditingComplete,
+      onChanged: (value) {
+        //onChanged!(value);
+        widget.onChanged != null ? widget.onChanged!(value) : null;
+      },
+      style: const TextStyle(
+          color: Colors.black
+      ),
+      cursorColor: mainColor,
+      cursorHeight: 18.h,
+      decoration: InputDecoration(
+        fillColor: whiteColor,
+        filled: true,
+        isDense: true,
+        hintText: widget.hintText,
+
+        helperText: widget.helperText,
+        prefixIcon: widget.prefixIcon,
+        suffixIcon:widget.suffixIcon,
+        floatingLabelBehavior: FloatingLabelBehavior.auto,
+        hintStyle:  TextStyle(
+          fontSize: 16.sp,
+          color: textColorFormField,
+        ),
+        border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(20),
-            borderSide: BorderSide(
-              color: grey600,
-            ),
-          ),
-          errorBorder:  OutlineInputBorder(
-            borderRadius: BorderRadius.circular(20),
-            borderSide: BorderSide(
-              color: Colors.red,
-            ),
-          ),
-          focusedErrorBorder:  OutlineInputBorder(
-            borderRadius: BorderRadius.circular(20),
-            borderSide: BorderSide(
-              color: Colors.red,
-            ),
+        ),
+        enabledBorder:   OutlineInputBorder(
+          borderRadius: BorderRadius.circular(20),
+          borderSide:  BorderSide(
+            color: widget.borderColor,
           ),
         ),
-        obscureText: widget.isPassword!,
-        obscuringCharacter: '*',
-        validator: widget.validator,
-        onSaved: (value) {
-          // widget.onSaved != null ? widget.onSaved!(value) : null;
-        },
-        keyboardType: widget.keyboardType,
+
+        contentPadding:  EdgeInsets.symmetric(
+          vertical: 10.h,
+          horizontal: 14.w,
+        ),
+        focusedBorder:  OutlineInputBorder(
+          borderRadius: BorderRadius.circular(20),
+          borderSide: BorderSide(
+            color: widget.borderColor,
+          ),
+        ),
+        errorBorder:  OutlineInputBorder(
+          borderRadius: BorderRadius.circular(20),
+          borderSide: BorderSide(
+            color: Colors.red,
+          ),
+        ),
+        focusedErrorBorder:  OutlineInputBorder(
+          borderRadius: BorderRadius.circular(20),
+          borderSide: BorderSide(
+            color: Colors.red,
+          ),
+        ),
       ),
+      obscureText: widget.isPassword!,
+      obscuringCharacter: '*',
+      validator: widget.validator,
+      onSaved: (value) {
+        // widget.onSaved != null ? widget.onSaved!(value) : null;
+      },
+      keyboardType: widget.keyboardType,
     );
   }
 }

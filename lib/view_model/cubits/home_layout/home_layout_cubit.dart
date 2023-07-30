@@ -22,7 +22,7 @@ class HomeLayoutCubit extends Cubit<HomeLayoutState> {
 
 
   // todo: call right screens.
-  List<Widget> screens = const [
+  List<Widget> screens =  [
     HomeScreen(),
     SearchScreen(),
     HomeScreen()
